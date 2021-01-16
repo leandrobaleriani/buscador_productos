@@ -1,0 +1,8 @@
+{
+  "name": "buscador",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

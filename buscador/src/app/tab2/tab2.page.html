@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Configuraci&oacute;n
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Configuraci&oacute;n</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="config" (ngSubmit)="saveConfig()">
+		<ion-item>
+			<ion-label position="stacked">Url Busqueda:</ion-label>
+			<ion-input type="text" formControlName="url" required></ion-input>
+		</ion-item>
+    <ion-button type="submit" expand="full" [disabled]="!config.valid">Guardar</ion-button>
+  </form>
+  <ion-button color="danger" expand="full" (click)="limpiarCache()">Limpiar Cach&eacute;</ion-button>
+</ion-content>

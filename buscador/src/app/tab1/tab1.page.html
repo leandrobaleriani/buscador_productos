@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Buscar Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Buscar Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="busqueda">
+		<ion-item>
+			<ion-label >Nombre/Código:</ion-label>
+      <ion-input type="text" formControlName="nombre" required (keypress)="search($event)"></ion-input>
+      <ion-button color="primary" (click)="searchBarCode()"><ion-icon name="barcode"></ion-icon></ion-button>
+    </ion-item>
+  </form>
+  
+  <ion-virtual-scroll [items]="productos">
+		<ion-item *virtualItem="let p">
+			<ion-avatar slot="start">
+				<ion-icon name="cube"></ion-icon>
+			</ion-avatar>
+			<ion-label>
+				<h2>{{p.pro_codigo}}</h2>
+				<h3>{{p.pro_nombre}}</h3>
+				<h3>{{p.pro_precio}}</h3>
+			</ion-label>
+		</ion-item>
+	</ion-virtual-scroll>
+</ion-content>
