@@ -8,11 +8,13 @@ import { Storage } from "@ionic/storage";
   providedIn: "root",
 })
 export class ProductosService {
-  baseUrl = "";
+  baseUrl = "http://192.168.0.200";
 
   constructor(private http: HttpClient, private storage: Storage) {
     this.storage.get("urlApi").then((val) => {
-      this.baseUrl = val;
+      if(val) {
+        this.baseUrl = val;
+      } 
     });
   }
 
